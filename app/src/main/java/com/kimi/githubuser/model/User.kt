@@ -1,4 +1,4 @@
-package com.kimi.githubuser.data
+package com.kimi.githubuser.model
 
 import android.os.Parcelable
 import com.google.gson.annotations.SerializedName

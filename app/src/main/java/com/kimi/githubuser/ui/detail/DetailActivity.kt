@@ -5,7 +5,7 @@ import android.os.Bundle
 import android.util.Log
 import android.view.MenuItem
 import com.kimi.githubuser.R
-import com.kimi.githubuser.data.User
+import com.kimi.githubuser.model.User
 
 import com.kimi.githubuser.util.loadingURL
 import kotlinx.android.synthetic.main.activity_detail.*

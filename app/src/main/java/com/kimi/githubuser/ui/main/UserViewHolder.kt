@@ -3,7 +3,7 @@ package com.kimi.githubuser.ui.main
 import android.view.View
 import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
-import com.kimi.githubuser.data.User
+import com.kimi.githubuser.model.User
 import com.kimi.githubuser.util.loadingURL
 import kotlinx.android.synthetic.main.item_user.view.*
 

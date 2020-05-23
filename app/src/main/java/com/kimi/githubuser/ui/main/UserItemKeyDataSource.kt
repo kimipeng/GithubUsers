@@ -1,17 +1,12 @@
-package com.kimi.githubuser.model
+package com.kimi.githubuser.ui.main
 
 import android.util.Log
 import androidx.paging.ItemKeyedDataSource
-import com.github.kittinunf.fuel.Fuel
-import com.github.kittinunf.fuel.core.FuelError
-import com.github.kittinunf.fuel.core.Request
-import com.github.kittinunf.fuel.core.Response
 import com.github.kittinunf.fuel.gson.responseObject
 import com.github.kittinunf.fuel.httpGet
-import com.github.kittinunf.result.Result
 import com.github.kittinunf.result.failure
 import com.github.kittinunf.result.success
-import com.kimi.githubuser.data.User
+import com.kimi.githubuser.model.User
 
 /**
  * Created by Kimi.Peng on 2020/5/23.

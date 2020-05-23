@@ -5,8 +5,7 @@ import androidx.lifecycle.ViewModel
 import androidx.paging.DataSource
 import androidx.paging.LivePagedListBuilder
 import androidx.paging.PagedList
-import com.kimi.githubuser.data.User
-import com.kimi.githubuser.model.UserItemKeyDataSource
+import com.kimi.githubuser.model.User
 
 /**
  * Created by Kimi.Peng on 2020/5/22.

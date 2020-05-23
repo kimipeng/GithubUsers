@@ -6,7 +6,7 @@ import android.widget.ImageView
 import androidx.paging.PagedListAdapter
 import androidx.recyclerview.widget.DiffUtil
 import com.kimi.githubuser.R
-import com.kimi.githubuser.data.User
+import com.kimi.githubuser.model.User
 
 /**
  * Created by Kimi.Peng on 2020/5/22.

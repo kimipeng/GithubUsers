@@ -33,8 +33,11 @@
     <TextView
         android:id="@+id/tv_badge"
         android:layout_width="wrap_content"
-        android:layout_height="19dp"
-        android:text="Badge"
+        android:layout_height="wrap_content"
+        android:text="STAFF"
+        android:padding="5dp"
+        android:textColor="@android:color/black"
+        android:background="@drawable/badge"
         android:visibility="gone"
         tools:visibility="visible"
         app:layout_constraintBottom_toBottomOf="@+id/iv_avatar"

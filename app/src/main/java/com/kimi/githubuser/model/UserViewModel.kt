@@ -11,7 +11,6 @@ import com.kimi.githubuser.data.User
 
 /**
  * Created by Kimi.Peng on 2020/5/22.
-https://api.github.com/users?since=0
  */
 class UseViewModel : ViewModel() {
 
@@ -34,10 +33,9 @@ class UseViewModel : ViewModel() {
             .setPageSize(20)
             .setPrefetchDistance(4)
             .setEnablePlaceholders(true)
-            .setMaxSize(20)
+            .setMaxSize(100)
             .build()
 
-        //users = LivePagedListBuilder(dataSource, 20).build()
         users = LivePagedListBuilder(dataSource, pagedListConfig).build()
     }
 

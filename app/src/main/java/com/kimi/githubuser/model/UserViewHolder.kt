@@ -25,7 +25,7 @@ class UserViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
         itemView.setOnClickListener {  clickListener(user) }
         tvBadge.visibility = if (user.siteAdmin) View.VISIBLE else View.GONE
-        tvLogin.text = user.login
+        tvLogin.text = user.login + " ${user.id}"
 
         // Loading image from avatar url.
         Glide

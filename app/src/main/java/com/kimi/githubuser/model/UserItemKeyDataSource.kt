@@ -2,47 +2,55 @@ package com.kimi.githubuser.model
 
 import android.util.Log
 import androidx.paging.ItemKeyedDataSource
+import com.github.kittinunf.fuel.Fuel
+import com.github.kittinunf.fuel.core.FuelError
+import com.github.kittinunf.fuel.core.Request
+import com.github.kittinunf.fuel.core.Response
+import com.github.kittinunf.fuel.gson.responseObject
+import com.github.kittinunf.fuel.httpGet
+import com.github.kittinunf.result.Result
+import com.github.kittinunf.result.failure
+import com.github.kittinunf.result.success
 import com.kimi.githubuser.data.User
 
 /**
  * Created by Kimi.Peng on 2020/5/23.
  * Related Paging -> DataSource
  */
-class UserItemKeyDataSource(): ItemKeyedDataSource<Int, User>() {
+class UserItemKeyDataSource() : ItemKeyedDataSource<Int, User>() {
 
     override fun loadInitial(params: LoadInitialParams<Int>, callback: LoadInitialCallback<User>) {
-        Log.d("kimi", "loadInitial: ")
 
-        val temp = mutableListOf<User>()
-        for (x in 1..5) {
+        "https://api.github.com/users?since=0"
+            .httpGet()
+            .responseObject<MutableList<User>>() { request, response, result ->
+                result.success {
+                    Log.d("kimi", "[loadInitial] Loading completed, Response Data Size:${it.size} ")
+                    callback.onResult(it)
+                }
 
-            val user = User(
-                x, "https://avatars2.githubusercontent.com/u/136?v=4",
-                "simonjefford", false, "https://api.github.com/users/simonjefford"
-            )
+                result.failure {
+                    Log.d("kimi", "[loadInitial] Error: ${it.response}")
+                }
+            }
 
-            temp.add(user)
-        }
-
-        callback.onResult(temp)
 
     }
 
     override fun loadAfter(params: LoadParams<Int>, callback: LoadCallback<User>) {
-        Log.d("kimi", "loadAfter: ${params.key}")
 
-        val temp = mutableListOf<User>()
-        for (x in 1..5) {
+        "https://api.github.com/users?since=${params.key}"
+            .httpGet()
+            .responseObject<MutableList<User>>() { request, response, result ->
+                result.success {
+                    Log.d("kimi", "[loadAfter] Loading completed, Since From ${params.key}, Response Data Size:${it.size} ")
+                    callback.onResult(it)
+                }
 
-            val user = User(
-                x + params.key, "https://avatars2.githubusercontent.com/u/136?v=4",
-                "simonjefford", false, "https://api.github.com/users/simonjefford"
-            )
-
-            temp.add(user)
-        }
-
-        callback.onResult(temp)
+                result.failure {
+                    Log.d("kimi", "[loadAfter] Error: ${it.response}")
+                }
+            }
     }
 
     override fun loadBefore(params: LoadParams<Int>, callback: LoadCallback<User>) {

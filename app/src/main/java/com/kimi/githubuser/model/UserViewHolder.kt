@@ -1,10 +1,12 @@
 package com.kimi.githubuser.model
 
 import android.view.View
+import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.kimi.githubuser.R
 import com.kimi.githubuser.data.User
+import com.kimi.githubuser.ui.loadingURL
 import kotlinx.android.synthetic.main.item_user.view.*
 
 /**
@@ -20,21 +22,15 @@ class UserViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
     fun bindData(
         user: User,
-        clickListener: (User) -> Unit
+        clickListener: (User, ImageView) -> Unit
     ) {
 
-        itemView.setOnClickListener {  clickListener(user) }
+        itemView.setOnClickListener {  clickListener(user, ivAvatar) }
         tvBadge.visibility = if (user.siteAdmin) View.VISIBLE else View.GONE
         tvLogin.text = user.login + " ${user.id}"
 
         // Loading image from avatar url.
-        Glide
-            .with(itemView.context)
-            .load(user.avatarUrl)
-            .centerCrop()
-            .placeholder(R.drawable.github_mark)
-            .into(ivAvatar)
-
+        ivAvatar.loadingURL(user.avatarUrl)
 
     }
 }

@@ -2,6 +2,7 @@ package com.kimi.githubuser.ui
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.ImageView
 import androidx.paging.PagedListAdapter
 import androidx.recyclerview.widget.DiffUtil
 import com.kimi.githubuser.R
@@ -12,7 +13,7 @@ import com.kimi.githubuser.model.UserViewHolder
  * Created by Kimi.Peng on 2020/5/22.
  */
 class UsersAdapter(
-    private val clickListener : (User) -> Unit
+    private val clickListener : (User, ImageView) -> Unit
 ): PagedListAdapter<User, UserViewHolder>(
     DIFF_CALLBACK
 ) {

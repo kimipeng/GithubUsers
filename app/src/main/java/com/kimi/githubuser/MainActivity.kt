@@ -6,9 +6,8 @@ import android.util.Log
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.kimi.githubuser.data.User
 import com.kimi.githubuser.model.UseViewModel
-import com.kimi.githubuser.model.UsersAdapter
+import com.kimi.githubuser.ui.UsersAdapter
 import com.kimi.githubuser.ui.ItemDecoration
 import kotlinx.android.synthetic.main.activity_main.*
 

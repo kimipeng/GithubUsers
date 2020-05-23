@@ -1,13 +1,13 @@
-package com.kimi.githubuser
+package com.kimi.githubuser.ui.detail
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.MenuItem
-import com.github.kittinunf.fuel.httpGet
+import com.kimi.githubuser.R
 import com.kimi.githubuser.data.User
 
-import com.kimi.githubuser.ui.loadingURL
+import com.kimi.githubuser.util.loadingURL
 import kotlinx.android.synthetic.main.activity_detail.*
 
 class DetailActivity : AppCompatActivity() {

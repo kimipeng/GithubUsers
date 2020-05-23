@@ -1,4 +1,4 @@
-package com.kimi.githubuser.ui
+package com.kimi.githubuser.ui.main
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -7,7 +7,6 @@ import androidx.paging.PagedListAdapter
 import androidx.recyclerview.widget.DiffUtil
 import com.kimi.githubuser.R
 import com.kimi.githubuser.data.User
-import com.kimi.githubuser.model.UserViewHolder
 
 /**
  * Created by Kimi.Peng on 2020/5/22.

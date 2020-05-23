@@ -1,4 +1,4 @@
-package com.kimi.githubuser.ui
+package com.kimi.githubuser.util
 
 import android.widget.ImageView
 import com.bumptech.glide.Glide

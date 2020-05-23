@@ -1,13 +1,12 @@
-package com.kimi.githubuser.model
+package com.kimi.githubuser.ui.main
 
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import androidx.paging.DataSource
-import androidx.paging.ItemKeyedDataSource
 import androidx.paging.LivePagedListBuilder
 import androidx.paging.PagedList
 import com.kimi.githubuser.data.User
+import com.kimi.githubuser.model.UserItemKeyDataSource
 
 /**
  * Created by Kimi.Peng on 2020/5/22.

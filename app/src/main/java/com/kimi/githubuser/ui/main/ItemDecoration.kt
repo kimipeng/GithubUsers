@@ -1,4 +1,4 @@
-package com.kimi.githubuser.ui
+package com.kimi.githubuser.ui.main
 
 import android.graphics.Rect
 import android.view.View

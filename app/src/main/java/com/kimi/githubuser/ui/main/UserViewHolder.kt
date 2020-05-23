@@ -1,12 +1,10 @@
-package com.kimi.githubuser.model
+package com.kimi.githubuser.ui.main
 
 import android.view.View
 import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
-import com.kimi.githubuser.R
 import com.kimi.githubuser.data.User
-import com.kimi.githubuser.ui.loadingURL
+import com.kimi.githubuser.util.loadingURL
 import kotlinx.android.synthetic.main.item_user.view.*
 
 /**

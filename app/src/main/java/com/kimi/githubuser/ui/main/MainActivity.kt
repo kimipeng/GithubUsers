@@ -19,30 +19,41 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        // Init viewModel
         val viewModel = ViewModelProvider(this).get(UseViewModel::class.java)
 
-
+        // Init adapter, it extends PagedListAdapter. And implement callback when user click item.
         val usersAdapter =
             UsersAdapter { user, transitionView ->
                 val intent = Intent(this@MainActivity, DetailActivity::class.java)
+
+                // Intent putExtra object.
                 intent.putExtra(EXTRA_USER_DETAIL, user)
+
+                // Make TransitionAnimation when intent to other activity.
                 val option = ActivityOptionsCompat.makeSceneTransitionAnimation(
                     this,
                     transitionView,
                     ViewCompat.getTransitionName(transitionView)!!
                 )
-                startActivity(intent, option.toBundle())
+
+                startActivity(intent, option.toBundle()) // Execute to anther activity.
             }
 
+        // Set item of padding in Recyclerview
         val pixelSize = resources.getDimensionPixelSize(R.dimen.item_decoration_margin)
         recycler.addItemDecoration(
             ItemDecoration(
                 pixelSize
             )
         )
+
+        // Set layout manager to VERTICAL
         recycler.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
         recycler.adapter = usersAdapter
 
+
+        // Register view model observer
         viewModel.users.observe(this, Observer {
             usersAdapter.submitList(it)
         })

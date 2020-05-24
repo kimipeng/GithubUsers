@@ -23,7 +23,9 @@ class UserViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         clickListener: (User, ImageView) -> Unit
     ) {
 
+        // when user click it will invoke callback, then it will intent to DetailActivity.
         itemView.setOnClickListener {  clickListener(user, ivAvatar) }
+
         tvBadge.visibility = if (user.siteAdmin) View.VISIBLE else View.GONE
         tvLogin.text = user.login + " ${user.id}"
 

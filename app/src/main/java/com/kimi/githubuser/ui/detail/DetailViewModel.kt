@@ -65,9 +65,14 @@ class DetailViewModel : ViewModel() {
     }
 
 
+    /**
+     * Simple loading data function, maybe refractory to Respiratory in future.
+     */
     fun loadUserData(user: User) {
 
         viewModelScope.launch {
+
+            // Fuel http request.
             user.url
                 .httpGet()
                 .responseObject<UserDetail>() { request, response, result ->
@@ -83,6 +88,9 @@ class DetailViewModel : ViewModel() {
         }
     }
 
+    /**
+     *  It will auto update content via dataBinding,
+     */
     private fun updateData(it: UserDetail) {
         _name.postValue(it.name)
         _bio.postValue(it.bio)

@@ -41,7 +41,7 @@ class DetailActivity : AppCompatActivity() {
         // Set binding viewModel
         binding.viewModel = viewModel
 
-        
+        // Get user data
         user = intent.getParcelableExtra(EXTRA_USER_DETAIL)
         user?.let {
             iv_avatar.loadingURL(it.avatarUrl)

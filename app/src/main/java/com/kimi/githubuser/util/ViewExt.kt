@@ -7,6 +7,10 @@ import com.kimi.githubuser.R
 /**
  * Created by Kimi.Peng on 2020/5/23.
  */
+
+/**
+ * ImageView loading url by Glide lib.
+ */
 fun ImageView.loadingURL(url: String) {
     Glide
         .with(this.context)

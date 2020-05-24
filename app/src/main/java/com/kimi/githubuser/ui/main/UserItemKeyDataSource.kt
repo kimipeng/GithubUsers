@@ -16,6 +16,7 @@ class UserItemKeyDataSource() : ItemKeyedDataSource<Int, User>() {
 
     override fun loadInitial(params: LoadInitialParams<Int>, callback: LoadInitialCallback<User>) {
 
+        // Fuel http request, Since from 0.
         "https://api.github.com/users?since=0"
             .httpGet()
             .responseObject<MutableList<User>>() { request, response, result ->
@@ -34,6 +35,7 @@ class UserItemKeyDataSource() : ItemKeyedDataSource<Int, User>() {
 
     override fun loadAfter(params: LoadParams<Int>, callback: LoadCallback<User>) {
 
+        // Fuel http request, Since by key value.
         "https://api.github.com/users?since=${params.key}"
             .httpGet()
             .responseObject<MutableList<User>>() { request, response, result ->

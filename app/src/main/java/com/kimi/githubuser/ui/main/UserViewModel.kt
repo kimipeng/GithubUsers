@@ -20,6 +20,8 @@ class UseViewModel : ViewModel() {
     }
 
     private fun initPagedList() {
+
+        // init DataSource
         val dataSource = object : DataSource.Factory<Int, User>() {
             override fun create(): DataSource<Int, User> {
                 return UserItemKeyDataSource()
@@ -27,6 +29,7 @@ class UseViewModel : ViewModel() {
 
         }
 
+        // set paging size
         val pagedListConfig = PagedList.Config.Builder()
             .setPageSize(20)
             .setPrefetchDistance(4)

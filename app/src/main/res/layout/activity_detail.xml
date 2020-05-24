@@ -1,32 +1,132 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".ui.detail.DetailActivity">
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/iv_avatar"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
-        android:layout_marginTop="32dp"
-        android:transitionName="item_transition"
-        app:civ_border_color="#9FA8DA"
-        app:civ_border_width="1dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <data>
+        <import type="android.view.View"/>
+        <variable
+            name="viewModel"
+            type="com.kimi.githubuser.ui.detail.DetailViewModel" />
+    </data>
 
-    <TextView
-        android:id="@+id/tv_name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="TextView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/iv_avatar" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.detail.DetailActivity">
+
+        <ImageView
+            android:id="@+id/iv_location"
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+            android:layout_marginTop="32dp"
+            app:layout_constraintStart_toStartOf="@+id/iv_avatar1"
+            app:layout_constraintTop_toBottomOf="@+id/iv_avatar1"
+            app:srcCompat="@drawable/baseline_location_on_24" />
+
+        <ImageView
+            android:id="@+id/iv_link"
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+            android:layout_marginTop="32dp"
+            app:layout_constraintStart_toStartOf="@+id/iv_location"
+            app:layout_constraintTop_toBottomOf="@+id/iv_location"
+            app:srcCompat="@drawable/baseline_insert_link_24" />
+
+        <ImageView
+            android:id="@+id/iv_avatar1"
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="32dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_bio"
+            app:srcCompat="@drawable/round_account_circle_24" />
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/iv_avatar"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_marginTop="32dp"
+            android:transitionName="item_transition"
+            app:civ_border_color="#9FA8DA"
+            app:civ_border_width="1dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@{viewModel.name.toString()}"
+            tools:text="Name"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/iv_avatar" />
+
+        <TextView
+            android:id="@+id/tv_bio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@{viewModel.bio.toString()}"
+            tools:text="Bio"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_name" />
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:id="@+id/tv_login"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:text="@{viewModel.login.toString()}"
+            tools:text="Name"
+            app:layout_constraintBottom_toTopOf="@+id/tv_badge"
+            app:layout_constraintStart_toEndOf="@+id/iv_avatar1"
+            app:layout_constraintTop_toTopOf="@+id/iv_avatar1" />
+
+        <TextView
+            android:id="@+id/tv_badge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="STAFF"
+            android:padding="5dp"
+            android:textColor="@android:color/black"
+            android:background="@drawable/badge"
+            android:visibility="@{viewModel.siteAdmin ? View.VISIBLE : View.GONE}"
+            tools:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="@+id/iv_avatar1"
+            app:layout_constraintStart_toStartOf="@+id/tv_login"
+            app:layout_constraintTop_toBottomOf="@+id/tv_login" />
+
+        <TextView
+            android:id="@+id/tv_location"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:text="@{viewModel.location.toString()}"
+            tools:text="location"
+            app:layout_constraintBottom_toBottomOf="@+id/iv_location"
+            app:layout_constraintStart_toEndOf="@+id/iv_location"
+            app:layout_constraintTop_toTopOf="@+id/iv_location" />
+
+        <TextView
+            android:id="@+id/tv_blog"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:text="@{viewModel.blog.toString()}"
+            tools:text="Blog"
+            android:autoLink="web"
+            android:textColorLink="#3b5998"
+            app:layout_constraintBottom_toBottomOf="@+id/iv_link"
+            app:layout_constraintStart_toEndOf="@+id/iv_link"
+            app:layout_constraintTop_toTopOf="@+id/iv_link" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
